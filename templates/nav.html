@@ -1,0 +1,49 @@
+
+{% if request.session.role_id == 2 %}
+<ul class="nav nav-pills nav-stacked custom-nav">
+    <li><a href="/"><i></i> <span></span></a></li>
+	<li><a href="/"><i class="fa fa-home"></i> <span>首页</span></a></li>
+	<li id="passet"><a href='{% url 'passet' %}'><i class="fa fa-book"></i> <span> 资产管理</span></a></li>
+	<li id='pansible' class="menu-list"><a href="#"><i class="fa fa-sun-o"></i> <span>Ansible 管理</span></a>
+	    <ul class="sub-menu-list">
+		    <li class="pansi_config"><a href='{% url 'pansi_config' %}'> 相关配置</a></li>
+			<li class="pansi_editgroup"><a href='{% url 'pansi_editgroup' %}'> 自定义分组</a></li>
+			<li class="pansi_task"><a href='{% url 'pansi_task' %}'> 快速执行/Command</a></li>
+			<li class="pansi_copy"><a href='{% url 'pansi_copy' %}'> 文件分发/Copy</a></li>
+		</ul>
+	</li>
+	<!--li id="pssh" class="menu-list"><a href='#'><i class="fa fa-book"></i> <span> ssh 管理</span></a>
+	    <ul class="sub-menu-list">
+		    <li class="pansi_config"><a href='{% url 'psshi_edit' %}'> ssh编辑</a></li>
+			<li class="pansi_config"><a href='{% url 'psshi_detail' %}'> default与回滚</a></li>
+		</ul>
+	</li-->
+
+	<li id='puser' class="menu-list"><a><i class="fa fa-user"></i> <span>用户管理</span></a>
+		<ul class="sub-menu-list">
+			<li class="user_list"><a href='{% url "pusery" %}'> 用户管理</a></li>
+			<li class=""><a href="{% url 'logout' %}"> 注销</a></li>
+		</ul>
+	</li>
+</ul>
+{% endif %}
+
+{% if request.session.role_id == 1 %}
+<ul class="nav nav-pills nav-stacked custom-nav">
+	<li><a href="/"><i></i> <span></span></a></li>
+	<li><a href="/"><i class="fa fa-home"></i> <span>首页</span></a></li>
+	<li id='pansible' class="menu-list"><a href="#"><i class="fa fa-sun-o"></i> <span>Ansible 管理</span></a>
+		<ul class="sub-menu-list">
+			<li class="pansi_config"><a href='{% url 'pansi_config' %}'> 相关配置</a></li>
+			<li class="pansi_editgroup"><a href='{% url 'pansi_editgroup' %}'> 自定义分组</a></li>
+			<li class="pansi_task"><a href='{% url 'pansi_task' %}'> 快速执行/Command</a></li>
+			<li class="pansi_copy"><a href='{% url 'pansi_copy' %}'> 文件分发/Copy</a></li>
+		</ul>
+	</li>
+	<li id='puser' class="menu-list"><a><i class="fa fa-user"></i> <span>用户管理</span></a>
+		<ul class="sub-menu-list">
+			<li class=""><a href="{% url 'logout' %}"> 注销</a></li>
+		</ul>
+	</li>
+</ul>
+{% endif %}

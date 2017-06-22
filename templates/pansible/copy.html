@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% block self_head_css_js %}
+<link href="/static/css/plugins/datepicker/datepicker3.css" rel="stylesheet">
+<link href="/static/css/plugins/chosen/chosen.css" rel="stylesheet">
+<script src="/static/js/plugins/chosen/chosen.jquery.js"></script>
+
+{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+    <h3>
+	    文件分发
+    </h3>
+	<ul class="breadcrumb">
+		<li>
+			<a href="#">首页</a>
+	    </li>
+		<li>
+			<a href="#">Ansible管理</a>
+		</li>
+		<li class="active">文件分发</li>
+	</ul>
+</div>
+
+<div class="row">
+	<div class="col-lg-10">
+
+	<section class="panel">
+	<header class="panel-heading custom-tab dark-tab">
+		<ul class="nav nav-tabs">
+			{% for info in infos %}
+			<li class="{% if forloop.counter == 1 %}active{% endif %}">
+				<a href="#{{info.department}}" data-toggle="tab">{{info.department}}</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</header>
+	<div class="panel-body">
+	<div class="tab-content">
+	{% for info in infos %}
+	<div class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{info.department}}">
+
+		<div class="panel">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					执行命令
+				</h4>
+			</div>
+			<div class="panel-body">
+				<form  method="post" id="taskForm" enctype="multipart/form-data" class="form-horizontal adminex-form">
+				{% csrf_token %}
+					<div class="form-group">
+						<label for="groups" class="col-sm-2 control-label">资产组</label>
+						<div class="col-sm-8">
+							<select name="groups" id="groups" data-placeholder="请选择资产组" class="chosen-select form-control m-b" multiple tabindex="2" >
+							    {% for group in info.groups %}
+								<option value='{{ group.id }}'>{{ group }}</option>
+								{% endfor %}
+							</select>
+						</div>
+						<input type="hidden" value={{info.department}} name='depart' />
+					</div>
+					<div class="form-group">
+						<label for="assets" class="col-sm-2 control-label">ip地址</label>
+							<div class="col-sm-8">
+							<select name="assets" id="assets" data-placeholder="请选择ip地址" class="chosen-select form-control m-b" multiple tabindex="2">
+								{% for asset in info.assets %}
+								<option value="{{ asset }}">{{ asset }}</option>
+								{% endfor %}
+							</select>
+							</div>
+					</div>
+					<div class="form-group has-success">
+						<label class="col-lg-2 control-label">目标路径,不填默认为/tmp/pigeon/</label>
+						<div class="col-lg-8">
+							<input type="text" name="target_dir" placeholder="" id="target_dir" class="form-control" value='/tmp/pigeon/'>
+						</div>
+					</div>
+					<div class="form-group has-success">
+						<div class="form-group">
+							<label for="file_name" class="col-sm-2 control-label">文件分发</label>
+							<input type="file" name="file_name" id="file_name">
+							<br />
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-lg-offset-2 col-lg-10">
+							<button class="btn btn-primary" type="submit">执行</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="panel">
+			<header class="panel-heading">
+				执行结果
+			</header>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12">
+						<dl>
+						    {% if error %}
+							<dt>{{error}}</dt>
+							
+							{% elif ret %}
+							<dt><font color='green'>执行成功(格式为hostname,是否更新文件)</font></dt>
+							{% for host, item in result_ok %}
+							<dd><font color='green'>{{host}}</font>{{item}}</dd>
+							{% endfor %}
+
+							<hr style="height:1px;border:none;border-top:1px dashed #0066CC;" />
+							<dt><font color='FF0000'>执行失败</font></dt>
+							{% for host, item in result_failed %}
+							<dd><font color='FF0000'>{{host}}</font>{{item}}<dd>
+							{% endfor %}
+
+							<hr style="height:1px;border:none;border-top:1px dashed #0066CC;" />
+							<dt><font color='D94600'>连接失败</font></dt>
+							{% for host, item in result_dark %}
+							<dd><font color='D94600'>{{host}}</font>{{item}}</dd>
+							{% endfor %}
+
+							{% endif %}
+						</dl>
+					</div>
+				</div>
+			</div>
+		</div>
+
+    </div>
+	{% endfor %}
+	</div></div>
+	</section>
+
+
+	</div>
+</div>
+{% endblock %}
+{% block self_footer_js %}
+<script>
+$('#taskForm').validator({
+	timely: 2,
+	theme: "yellow_right_effect",
+	rules: {
+		check_asset: function(){
+			return $('#assets').val() == null
+		},
+		check_group: function(){
+			return $('#groups').val() == null
+		}
+	},
+	fields: {
+		"assets": {
+			rule: "required(check_group)",
+			tip: "选择资产",
+			msg: {required: "资产和资产组必选一个"}
+			},
+	
+	},
+	valid: function(form) {
+			form.submit();
+			}
+});
+
+var config = {
+				'.chosen-select'           : {},
+				'.chosen-select-deselect'  : {allow_single_deselect:true},
+				'.chosen-select-no-single' : {disable_search_threshold:10},
+				'.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+				'.chosen-select-width'     : {width:"95%"}
+	};
+
+for (var selector in config) {
+	    $(selector).chosen(config[selector]);
+}
+</script>
+<script src="/static/js/cropper/cropper.min.js"></script>
+<script src="/static/js/datapicker/bootstrap-datepicker.js"></script>
+
+{% endblock %}

@@ -1,0 +1,69 @@
+2016-12-17 09:15:13 - admin 编辑了资产组 ad_f ，将管理员改为 wangxiaohu,wangxiaogou .
+2016-12-17 09:25:44 - admin 赋予了 wangxiaohu 平台管理员权限
+2016-12-17 09:25:47 - admin 撤销了 wangxiaohu 的平台管理员权限
+2016-12-17 09:25:49 - admin 赋予了 wangxiaohu 平台管理员权限
+2016-12-17 09:25:50 - admin 撤销了 wangxiaohu 的平台管理员权限
+2016-12-30 10:08:07 - admin 编辑了资产组 test ，将管理员改为 admin,wangxiaolong,zhaohong-ds1 .
+2016-12-30 10:09:27 - admin 赋予了 zhaohong-ds1 平台管理员权限
+2016-12-30 10:09:50 - admin 撤销了 zhaohong-ds1 的平台管理员权限
+2016-12-30 10:14:04 - admin 对 devops部门的资产组 [<Asset: 10.125.136.41>]执行了 ls操作，结果为 {'dark': {}, 'failed': {}, 'ok': {u'bj02-ops-zeus03.pro.gomeplus.com': u'20161206\nbin\nboot\ndata\ndev\netc\ngomeo2o\nhome\nlib\nlib64\nlost+found\nmedia\nmnt\nopt\nproc\nroot\nsbin\nselinux\nsrv\nsys\ntmp\nusr\nvar'}}
+2016-12-30 10:15:03 - admin 对 devops部门的资产组 [<Asset: 10.125.136.41>]执行了 ls -l操作，结果为 {'dark': {}, 'failed': {}, 'ok': {u'bj02-ops-zeus03.pro.gomeplus.com': u'total 122\ndrwxr-xr-x    2 root root  4096 Dec 28 16:45 20161206\ndr-xr-xr-x.   2 root root  4096 Nov  4 03:30 bin\ndr-xr-xr-x.   5 root root  1024 Sep 20 10:36 boot\ndrwxr-xr-x.   3 root root  4096 Apr 21  2016 data\ndrwxr-xr-x   18 root root  3680 Sep 21 10:47 dev\ndrwxr-xr-x.  98 root root 12288 Dec 27 17:50 etc\ndrwxr-xr-x.  16 root root  4096 Dec 22 16:48 gomeo2o\ndrwxr-xr-x.  32 root root  4096 Nov 16 18:51 home\ndr-xr-xr-x.  10 root root  4096 Sep 13 02:16 lib\ndr-xr-xr-x.   9 root root 12288 Nov  4 03:30 lib64\ndrwx------.   2 root root 16384 Apr 21  2016 lost+found\ndrwxr-xr-x.   2 root root  4096 Sep 23  2011 media\ndrwxr-xr-x.   2 root root  4096 Sep 23  2011 mnt\ndrwxr-xr-x.   3 root root  4096 Nov  1 15:36 opt\ndr-xr-xr-x  188 root root     0 Sep 21 10:47 proc\ndr-xr-x---.  15 root root  4096 Dec 28 16:45 root\ndr-xr-xr-x.   2 root root 12288 Nov  4 03:30 sbin\ndrwxr-xr-x.   2 root root  4096 Apr 21  2016 selinux\ndrwxr-xr-x.   2 root root  4096 Sep 23  2011 srv\ndrwxr-xr-x   13 root root     0 Sep 21 10:47 sys\ndrwxrwxrwt.   5 root root 12288 Dec 30 03:12 tmp\ndrwxr-xr-x.  14 root root  4096 Apr 21  2016 usr\ndrwxr-xr-x.  22 root root  4096 Oct 27 11:24 var'}}
+2016-12-30 10:23:05 - admin 对 devops部门的资产组 [<Asset: 10.125.136.41>]执行了 waiting.jpg的文件分发，结果为 {'dark': {}, 'failed': {}, 'ok': {u'bj02-ops-zeus03.pro.gomeplus.com': True}}
+2016-12-30 10:35:50 - admin 编辑了资产组 docker_test2 ，将管理员改为 wangxiaoniu .
+2016-12-30 11:07:39 - admin 编辑了资产组 docker_test1 ，将管理员改为 wangxiaolong,wangxiaoshu .
+2016-12-30 11:15:59 - admin 编辑了资产组 docker_test2 ，将管理员改为 wangxiaoniu,admin .
+2016-12-30 11:16:54 - admin 对 depart2部门的资产组 [<Asset: 10.69.112.95>, <Asset: 10.69.112.93>]执行了 ls操作，结果为 {'dark': {u'docker_69.112.95_zhaohong-ds1': 'SSH Error: ssh_exchange_identification: Connection closed by remote host\n    while connecting to 10.69.112.95:21987\nIt is sometimes useful to re-run the command using -vvvv, which prints SSH debug output to help diagnose the issue.', u'docker_69.112.93_zhaohong-ds1': 'SSH Error: ssh_exchange_identification: Connection closed by remote host\n    while connecting to 10.69.112.93:21987\nIt is sometimes useful to re-run the command using -vvvv, which prints SSH debug output to help diagnose the issue.'}, 'failed': {}, 'ok': {}}
+2016-12-30 11:18:26 - admin 对 depart4部门的资产组 [<Asset: 10.125.136.41>]执行了 ls操作，结果为 {'dark': {}, 'failed': {}, 'ok': {u'bj02-ops-zeus03.pro.gomeplus.com': u'20161206\nbin\nboot\ndata\ndev\netc\ngomeo2o\nhome\nlib\nlib64\nlost+found\nmedia\nmnt\nopt\nproc\nroot\nsbin\nselinux\nsrv\nsys\ntmp\nusr\nvar'}}
+2016-12-30 11:18:51 - admin 对 depart4部门的资产组 [<Asset: 10.125.136.41>]执行了 ls -l操作，结果为 {'dark': {}, 'failed': {}, 'ok': {u'bj02-ops-zeus03.pro.gomeplus.com': u'total 122\ndrwxr-xr-x    2 root root  4096 Dec 28 16:45 20161206\ndr-xr-xr-x.   2 root root  4096 Nov  4 03:30 bin\ndr-xr-xr-x.   5 root root  1024 Sep 20 10:36 boot\ndrwxr-xr-x.   3 root root  4096 Apr 21  2016 data\ndrwxr-xr-x   18 root root  3680 Sep 21 10:47 dev\ndrwxr-xr-x.  98 root root 12288 Jan  2 22:07 etc\ndrwxr-xr-x.  16 root root  4096 Dec 22 16:48 gomeo2o\ndrwxr-xr-x.  32 root root  4096 Nov 16 18:51 home\ndr-xr-xr-x.  10 root root  4096 Sep 13 02:16 lib\ndr-xr-xr-x.   9 root root 12288 Nov  4 03:30 lib64\ndrwx------.   2 root root 16384 Apr 21  2016 lost+found\ndrwxr-xr-x.   2 root root  4096 Sep 23  2011 media\ndrwxr-xr-x.   2 root root  4096 Sep 23  2011 mnt\ndrwxr-xr-x.   3 root root  4096 Nov  1 15:36 opt\ndr-xr-xr-x  182 root root     0 Sep 21 10:47 proc\ndr-xr-x---.  15 root root  4096 Dec 28 16:45 root\ndr-xr-xr-x.   2 root root 12288 Nov  4 03:30 sbin\ndrwxr-xr-x.   2 root root  4096 Apr 21  2016 selinux\ndrwxr-xr-x.   2 root root  4096 Sep 23  2011 srv\ndrwxr-xr-x   13 root root     0 Sep 21 10:47 sys\ndrwxrwxrwt.   5 root root 12288 Jan  3 04:13 tmp\ndrwxr-xr-x.  14 root root  4096 Apr 21  2016 usr\ndrwxr-xr-x.  22 root root  4096 Oct 27 11:24 var'}}
+2016-12-30 11:19:17 - admin 对 depart4部门的资产组 [<Asset: 10.125.136.41>]执行了 whoami操作，结果为 {'dark': {}, 'failed': {}, 'ok': {u'bj02-ops-zeus03.pro.gomeplus.com': u'root'}}
+2016-12-30 12:00:12 - admin 对 depart4部门的资产组 [<Asset: 10.125.136.41>]执行了 ls操作，结果为 {'dark': {}, 'failed': {}, 'ok': {u'bj02-ops-zeus03.pro.gomeplus.com': u'20161206\nbin\nboot\ndata\ndev\netc\ngomeo2o\nhome\nlib\nlib64\nlost+found\nmedia\nmnt\nopt\nproc\nroot\nsbin\nselinux\nsrv\nsys\ntmp\nusr\nvar'}}
+2016-12-30 15:18:18 - admin 对 depart4部门的资产组 [<Asset: 10.69.112.95>, <Asset: 10.125.136.41>]执行了 whoami操作，结果为 {'dark': {u'docker_69.112.95_zhaohong-ds1': 'SSH Error: ssh_exchange_identification: Connection closed by remote host\n    while connecting to 10.69.112.95:21987\nIt is sometimes useful to re-run the command using -vvvv, which prints SSH debug output to help diagnose the issue.'}, 'failed': {}, 'ok': {u'bj02-ops-zeus03.pro.gomeplus.com': u'root'}}
+2016-12-30 15:33:06 - admin 编辑了资产组 final ，将管理员改为 admin,wangxiaolong .
+2016-12-30 15:53:11 - admin 编辑了资产组 docker_test2 ，将管理员改为 admin .
+2016-12-30 15:53:17 - admin 编辑了资产组 docker_test1 ，将管理员改为 wangxiaolong .
+2016-12-30 15:53:27 - admin 编辑了资产组 vvvv ，将管理员改为 wangxiaogou .
+2016-12-30 18:55:48 - admin 编辑了资产组 docker_test1 ，将管理员改为 wangxiaolong .
+2016-12-30 18:55:56 - admin 编辑了资产组 docker_test2 ，将管理员改为 admin,www .
+2016-12-30 19:30:59 - admin 编辑了资产组 vvvv ，将管理员改为 wangxiaogou,w .
+2016-12-30 19:31:05 - admin 编辑了资产组 vvvv ，将管理员改为 wangxiaogou .
+2016-12-30 20:31:09 - admin 编辑了资产组 docker_test1 ，将管理员改为 admin,wangxiaolong,asd .
+2016-12-30 20:31:47 - admin 编辑了资产组 docker_test1 ，将管理员改为 admin,wangxiaolong .
+2016-12-30 20:36:49 - admin 编辑了资产组 213 ，将管理员改为 wangxiaogou,admin .
+2016-12-30 20:43:52 - admin 编辑了资产组 213 ，将管理员改为 admin,wangxiaogou .
+2016-12-30 20:43:58 - admin 编辑了资产组 213 ，将管理员改为 wangxiaogou .
+2016-12-30 20:44:04 - admin 编辑了资产组 docker_test1 ，将管理员改为 wangxiaolong .
+2016-12-30 20:45:39 - admin 编辑了资产组 docker_test1 ，将管理员改为 wangxiaolong,admin .
+2016-12-30 20:53:05 - admin 编辑了资产组 docker_test1 ，将管理员改为 wangxiaolong,admin .
+2016-12-30 20:53:13 - admin 编辑了资产组 docker_test1 ，将管理员改为 wangxiaolong .
+2016-12-30 20:53:38 - admin 编辑了资产组 docker_test1 ，将管理员改为 wangxiaolong,admin .
+2016-12-30 21:01:47 - admin 编辑了资产组 docker_test1 ，将管理员改为 admin,wangxiaolong .
+2016-12-30 21:02:56 - admin 编辑了资产组 docker_test1 ，将管理员改为 admin,wangxiaolong .
+2016-12-30 21:12:10 - admin 编辑了资产组 汉语 ，将管理员改为 王小龙,admin .
+2016-12-30 21:18:19 - admin 编辑了资产组 汉语 ，将管理员改为 admin .
+2016-12-30 21:55:07 - admin 编辑了资产组 docker_test1 ，将管理员改为 admin .
+2016-12-30 23:04:29 - admin 对 depart1部门的资产组 [<Asset: 10.69.112.84>]执行了 ls操作，结果为 {'dark': {u'docker_69.112.84_zhaohong-ds1': 'Authentication failure.'}, 'failed': {}, 'ok': {}}
+2016-12-30 23:19:37 - admin 删除了平台用户  
+2016-12-30 23:24:12 - admin 对 depart1部门的资产组 [<Asset: 10.69.112.83>]执行了 ls操作，结果为 {'dark': {u'docker_69.112.83_zhaohong-ds1': 'Authentication failure.'}, 'failed': {}, 'ok': {}}
+2016-12-31 03:16:47 - admin 对 depart1部门的资产组 [<Asset: 10.69.112.84>]执行了 ls操作，结果为 {'dark': {u'docker_69.112.84_zhaohong-ds1': 'Authentication failure.'}, 'failed': {}, 'ok': {}}
+2016-12-31 03:18:51 - admin 对 depart1部门的资产组 [<Asset: 10.69.112.84>]执行了 ls操作，结果为 {'dark': {u'docker_69.112.84_zhaohong-ds1': 'Authentication failure.'}, 'failed': {}, 'ok': {}}
+2016-12-31 03:21:01 - admin 对 depart1部门的资产组 [<Asset: 10.69.112.84>]执行了 ls操作，结果为 {'dark': {u'docker_69.112.84_zhaohong-ds1': 'Authentication failure.'}, 'failed': {}, 'ok': {}}
+2016-12-31 03:33:37 - admin 对 depart1部门的资产组 [<Asset: 10.69.112.84>]执行了 ls操作，结果为 {'dark': {u'docker_69.112.84_zhaohong-ds1': 'Authentication failure.'}, 'failed': {}, 'ok': {}}
+2016-12-31 03:44:09 - admin 对 depart1部门的资产组 [<Asset: 10.69.112.84>]执行了 ls;ls操作，结果为 {'dark': {u'docker_69.112.84_zhaohong-ds1': 'Authentication failure.'}, 'failed': {}, 'ok': {}}
+2016-12-31 03:45:11 - admin 对 departtest部门的资产组 [<Asset: 10.125.136.41>]执行了 ls;ls操作，结果为 {'dark': {u'bj02-ops-zeus03.pro.gomeplus.com': 'Authentication failure.'}, 'failed': {}, 'ok': {}}
+2016-12-31 03:45:57 - admin 对 departtest部门的资产组 [<Asset: 10.125.136.41>]执行了 ls操作，结果为 {'dark': {}, 'failed': {}, 'ok': {u'bj02-ops-zeus03.pro.gomeplus.com': u'20161206\nbin\nboot\ndata\ndev\netc\ngitroom\ngomeo2o\nhome\nlib\nlib64\nlost+found\nmedia\nmnt\nopt\nproc\nroot\nsbin\nselinux\nsrv\nsys\ntmp\nusr\nvar'}}
+2016-12-31 03:46:20 - admin 对 departtest部门的资产组 [<Asset: 10.125.136.41>]执行了 mkdir gaggag;ls操作，结果为 {'dark': {}, 'failed': {}, 'ok': {u'bj02-ops-zeus03.pro.gomeplus.com': u''}}
+2016-12-31 03:46:37 - admin 对 departtest部门的资产组 [<Asset: 10.125.136.41>]执行了 ls操作，结果为 {'dark': {}, 'failed': {}, 'ok': {u'bj02-ops-zeus03.pro.gomeplus.com': u'20161206\nbin\nboot\ndata\ndev\netc\ngaggag;ls\ngitroom\ngomeo2o\nhome\nlib\nlib64\nlost+found\nmedia\nmnt\nopt\nproc\nroot\nsbin\nselinux\nsrv\nsys\ntmp\nusr\nvar'}}
+2017-01-05 08:16:43 - admin 新建了资产组 houserilei ，维护标准为 3.2.1.3 ,部门为 depart1 ,环境为 pro ，管理员为 asdaxc .
+2017-01-05 08:19:27 - admin 删除了资产组 houserilei .
+2017-01-10 12:57:11 - admin 对 departtest部门的资产组 [<Asset: 10.125.136.41>]执行了 ls操作，结果为 {'dark': {}, 'failed': {}, 'ok': {u'bj02-ops-zeus03.pro.gomeplus.com': u'20161206\nbin\nboot\ndata\ndev\netc\ngaggag;ls\ngitroom\ngomeo2o\nhome\nlib\nlib64\nlost+found\nmedia\nmnt\nopt\nproc\nroot\nsbin\nselinux\nsrv\nsys\ntmp\nusr\nvar'}}
+2017-01-24 02:46:03 - admin 赋予了 王小龙 平台管理员权限
+2017-01-24 02:46:06 - admin 撤销了 王小龙 的平台管理员权限
+2017-01-24 04:44:09 - admin 创建了 depart1部门的资产组 hggu，资产包含[u'10.69.112.84', u'10.69.112.85']
+2017-02-18 07:05:21 - admin 编辑了资产组 test ，将管理员改为 wangxiaolong .
+2017-02-18 07:05:47 - admin 编辑了资产组 test ，将管理员改为 wangxiaolong,admin .
+2017-02-18 07:13:18 - admin 创建了 depart1部门的资产组 ffddvfa，资产包含[u'10.69.112.84', u'10.69.112.85']
+2017-02-18 07:23:32 - admin 创建了 depart1部门的资产组 sadqef，资产包含[u'10.69.112.83', u'10.69.112.85']
+2017-02-18 07:58:35 - admin 对 departtest部门的资产组 [<Asset: 10.125.136.41>]执行了 ls操作，结果为 {'dark': {}, 'failed': {}, 'ok': {u'bj02-ops-zeus03.pro.gomeplus.com': u'20161206\nbin\nboot\ndata\ndev\netc\ngaggag;ls\ngitroom\ngomeo2o\nhome\nlib\nlib64\nlost+found\nmedia\nmnt\nopt\nproc\nroot\nsbin\nselinux\nsrv\nsys\ntmp\nusr\nvar'}}
+2017-04-26 19:39:51 - admin 对 departtest部门的资产组 [<Asset: 10.125.136.41>]执行了 ls操作，结果为 {'dark': {}, 'failed': {}, 'ok': {u'bj02-ops-zeus03.pro.gomeplus.com': u'20161206\nbin\nboot\ndata\ndev\netc\ngaggag;ls\ngitroom\ngomeo2o\nhome\nlib\nlib64\nlost+found\nmedia\nmnt\nopt\nproc\nroot\nsbin\nselinux\nsrv\nsys\ntmp\nusr\nvar'}}
+2017-06-08 12:17:07 - admin 对 departtest部门的资产组 [<Asset: 10.125.136.41>]执行了 ls操作，结果为 {'dark': {}, 'failed': {}, 'ok': {u'bj02-ops-zeus03.pro.gomeplus.com': u'20161206\nbin\nboot\ndata\ndev\netc\ngaggag;ls\ngitroom\ngomeo2o\nhome\nlib\nlib64\nlost+found\nmedia\nmnt\nopt\nproc\nroot\nsbin\nselinux\nsrv\nsys\ntmp\nusr\nvar'}}
+2017-06-08 12:18:26 - admin 对 departtest部门的资产组 [<Asset: 10.125.136.41>]执行了 templates.txt的文件分发，结果为 {'dark': {}, 'failed': {}, 'ok': {u'bj02-ops-zeus03.pro.gomeplus.com': True}}

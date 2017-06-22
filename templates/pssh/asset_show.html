@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block self_head_css_js %}
+<link href="/static/js/advanced-datatable/css/demo_page.css" rel="stylesheet" />
+<link href="/static/js/advanced-datatable/css/demo_table.css" rel="stylesheet" />
+<link rel="stylesheet" href="/static/js/data-tables/DT_bootstrap.css" />
+{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+    <h3>
+	    相关配置
+    </h3>
+	<ul class="breadcrumb">
+		<li>
+			<a href="#">首页</a>
+	    </li>
+		<li>
+			<a href="#">Ansible管理</a>
+		</li>
+		<li class="active">相关配置</li>
+	</ul>
+</div>
+
+
+<div class="row">
+	<div class="col-md-10">
+	<div class="panel-group" id="accordion">
+		
+		<div class="panel">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+						资产相关
+					</a>
+				</h4>
+			</div>
+			<div id="collapseOne" class="panel-collapse collapse in">
+				<div class="panel-body">
+
+
+
+
+				</div>
+			</div>
+		</div>
+
+		<div class="panel">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+					管理账号
+				</a>
+				</h4>
+			</div>
+			<div id="collapseTwo" class="panel-collapse collapse">
+				<div class="panel-body">
+				
+
+
+
+
+				</div>
+			</div>
+		</div>
+	
+		<div class="panel">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+						一键同步
+					</a>
+				</h4>
+			</div>
+			<div id="collapseThree" class="panel-collapse collapse">
+				<div class="panel-body">
+				
+				
+				
+				
+				</div>
+			</div>
+		</div>
+
+	</div>
+	</div>
+</div>
+{% endblock %}
+{% block self_footer_js %}
+
+<script src="/static/js/jquery-1.12.1.min.js"></script>
+
+<!--dynamic table-->
+<script type="text/javascript" language="javascript" src="/static/js/advanced-datatable/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="/static/js/data-tables/DT_bootstrap.js"></script>
+<!--dynamic table initialization -->
+<script src="/static/js/dynamic_table_init.js"></script>
+{% endblock %}

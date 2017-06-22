@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% block self_head_css_js %}
+    <link href="/static/css/vaildator/jquery.validator.css" rel="stylesheet">
+    <link href="/static/css/plugins/datepicker/datepicker3.css" rel="stylesheet">
+    <link href="/static/css/plugins/chosen/chosen.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/js/jquery-multi-select/css/multi-select.css" />
+    <script src="/static/js/plugins/chosen/chosen.jquery.js"></script>
+    <script src="/static/js/validator/jquery.validator.js"></script>
+    <script src="/static/js/validator/zh_CN.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+    <h3>
+	    自定义分组
+    </h3>
+	<ul class="breadcrumb">
+		<li>
+			<a href="#">首页</a>
+	    </li>
+		<li>
+			<a href="#">Ansible管理</a>
+		</li>
+		<li class="active">自定义分组</li>
+	</ul>
+</div>
+
+<div class="row">
+	<div class="col-md-10">
+    <section class="panel">
+	<header class="panel-heading custom-tab dark-tab">
+		<ul class="nav nav-tabs">
+			{% for info in infos %}
+			<li class="{% if forloop.counter == 1 %}active{% endif %}">
+				<a href="#{{info.department}}" data-toggle="tab">{{info.department}}</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</header>
+	<div class="panel-body">
+	<div class="tab-content">
+	{% for info in infos %}
+	<div class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{info.department}}">
+
+		<div class="panel">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" >
+					定义资产组
+					</a>
+				</h4>
+			</div>
+			<div class="panel-body">
+				<form  method="post" id="editForm" class="form-horizontal adminex-form">
+				{% csrf_token %}
+					<div class="form-group has-success">
+						<label class="col-lg-2 control-label">资产组命名</label>
+						<div class="col-lg-8">
+							<input type="text" name="groupname" placeholder="" id="groupname" class="form-control" required>
+						</div>
+							<input type="hidden" value={{info.department}} name='depart' />
+					</div>
+					<div class="form-group">
+					<label class="control-label col-lg-2">选择资产</label>
+						<div class="col-lg-8">
+							<select name="assetlist" class="multi-select" multiple="" id="my_multi_select{{info.select_id}}" >
+								{% for asset in info.assets %}
+								<option value="{{asset}}">{{asset}}</option>
+								{% endfor %}
+							</select>
+						</div>
+					</div>
+					<div class="form-group has-success">
+					<label class="col-lg-2 control-label">资产组说明</label>
+						<div class="col-lg-8">
+							<input type="text" name="comment" placeholder="" id="comment" class="form-control">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-lg-offset-2 col-lg-10">
+							<button class="btn btn-primary" type="submit">确定</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		</div>
+		{% endfor %}
+	</div></div>
+	</section>
+
+	</div>
+</div>
+{% endblock %}
+{% block self_footer_js %}
+<script>
+
+$('#editForm').validator({
+    timely: 2,
+    theme: "yellow_right_effect",
+    rules: {
+        check_asset: function(){
+            return $('#assets').val() == null
+            },
+        check_group: function(){
+            return $('#groups').val() == null
+            }
+        },
+        fields: {
+            "assets": {
+                 rule: "required",
+                 tip: "选择资产",
+                 msg: {required: "资产必填"}
+                 },
+            "groupname": {
+                 rule:"required",
+                 tip:"填写自定义组名",
+                 msg: {required: "资产组必填"}
+                 },
+             },
+    valid: function(form) {
+        form.submit();
+    }
+});
+
+var config = {
+				'.chosen-select'           : {},
+				'.chosen-select-deselect'  : {allow_single_deselect:true},
+				'.chosen-select-no-single' : {disable_search_threshold:10},
+				'.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+				'.chosen-select-width'     : {width:"95%"}
+	};
+
+for (var selector in config) {
+	    $(selector).chosen(config[selector]);
+}
+
+</script>
+<script src="/static/js/cropper/cropper.min.js"></script>
+<script src="/static/js/datapicker/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="/static/js/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script type="text/javascript" src="/static/js/jquery-multi-select/js/jquery.quicksearch.js"></script>
+<script src="/static/js/multi-select-init.js"></script>
+
+{% endblock %}

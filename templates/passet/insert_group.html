@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% block self_head_css_js %}
+<link href="/static/css/plugins/datepicker/datepicker3.css" rel="stylesheet">
+<link href="/static/css/plugins/chosen/chosen.css" src="js/jquery-2.1.1.js" rel="stylesheet">
+<script src="/static/js/plugins/chosen/chosen.jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/js/jquery-tags-input/jquery.tagsinput.css" />
+
+{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+    <h3>
+	    定义资产组
+    </h3>
+	<ul class="breadcrumb">
+		<li>
+			<a href="#">首页</a>
+	    </li>
+		<li>
+			<a href="#">资产管理</a>
+		</li>
+		<li class="active">定义资产组</li>
+	</ul>
+</div>
+
+<div class="row">
+	<div class="col-md-10">
+		<div class="panel">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					定义资产组
+				</h4>
+			</div>
+			<div class="panel-body">
+				<form  method="post"  id="taskForm" class="form-horizontal adminex-form">
+				{% csrf_token %}
+					<div class="form-group has-success">
+
+						{% if error %}
+						<div class="alert  alert-warning fade in">
+							<button type="button" class="close close-sm" data-dismiss="alert">
+								<i class="fa fa-times"></i>
+							</button>
+							<strong>Warning!</strong> {{error}}
+						</div>
+						{% endif %}
+						<label class="col-lg-2 control-label">name</label>
+						<div class="col-lg-8">
+							<input type="text" name="name" placeholder="" id="name"  class="form-control">
+						</div>
+							
+					</div>
+
+					<div class="form-group has-success">
+						<label class="col-lg-2 control-label">维护标准</label>
+						<div class="col-lg-8">
+							<input type="text" name="segment" placeholder="" id="tags_3"  class="tags form-control">
+						</div>
+					</div>
+
+					<div class="form-group has-success">
+						<label for="department" class="col-sm-2 control-label">部门</label>
+						<div class="col-lg-8">
+							<input type="text" name="department" placeholder="" id="department"  class="form-control">
+						</div>
+					</div>
+
+					<div class="form-group has-success">
+						<label for="env" class="col-sm-2 control-label">环境</label>
+							<div class="col-lg-8">
+								<select name="env" id="env" class="form-control">
+								<option selected value="pro">pro</option>
+								<option value='pre'>pre</option>
+								<option value='dev'>dev</option>
+								</select>
+							</div>
+					</div>
+
+					<div class="form-group has-success">
+						<label class="col-lg-2 control-label">管理员</label>
+						<div class="col-lg-8">
+							<input type="text" name="manager" placeholder="" id="tags_1" class="tags form-control">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-lg-offset-2 col-lg-10">
+							<button class="btn btn-primary" type="submit">保存</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+
+
+	</div>
+</div>
+{% endblock %}
+{% block self_footer_js %}
+<script>
+$('#taskForm').validator({
+    timely: 2,
+    theme: "yellow_right_effect",
+    rules: {
+        check_asset: function(){
+            return $('#assets').val() == null
+        },
+        check_group: function(){
+            return $('#groups').val() == null
+        }
+    },
+    fields: {
+        "name": {
+            rule: "required",
+            tip: "资产组名",
+            msg: {required: "name必填"}
+        },
+        "segment": {
+            rule:"required",
+            tip:"维护标准，网段",
+            msg: {required: "维护标准必填,请填写网段或固定IP"}
+        },
+        "department":{
+            rule:"required",
+            tip:"部门",
+            msg: {required: "部门必填"}
+        },
+        "env":{
+            rule:"required",
+            tip:"环境",
+            msg: {required: "环境必填"}
+        },
+        "manager": {
+            rule: "required",
+            tip:"管理员",
+            msg: {required: "管理员必填"}
+        },
+    },
+
+    valid: function(form) {
+            form.submit();
+        }
+});
+
+
+var config = {
+                '.chosen-select'           : {},
+                '.chosen-select-deselect'  : {allow_single_deselect:true},
+                '.chosen-select-no-single' : {disable_search_threshold:10},
+                '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+                '.chosen-select-width'     : {width:"95%"}
+};
+
+for (var selector in config) {
+        $(selector).chosen(config[selector]);
+}
+
+</script>
+<script src="/static/js/cropper/cropper.min.js"></script>
+<script src="/static/js/datapicker/bootstrap-datepicker.js"></script>
+<script src="/static/js/jquery-tags-input/jquery.tagsinput.js"></script>
+<script src="/static/js/tagsinput-init.js"></script>
+
+{% endblock %}

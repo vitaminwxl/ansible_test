@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% block self_head_css_js %}
+<link href="/static/css/plugins/datepicker/datepicker3.css" rel="stylesheet">
+<link href="/static/css/plugins/chosen/chosen.css" src="js/jquery-2.1.1.js" rel="stylesheet">
+<script src="/static/js/plugins/chosen/chosen.jquery.js"></script>
+
+{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+    <h3>
+	    sshd编辑
+    </h3>
+	<ul class="breadcrumb">
+		<li>
+			<a href="#">首页</a>
+	    </li>
+		<li>
+			<a href="#">ssh管理</a>
+		</li>
+		<li class="active">sshd编辑</li>
+	</ul>
+</div>
+
+<div class="row">
+	<div class="col-md-10">
+
+
+		<div class="panel">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					管理配置文件
+				</h4>
+			</div>
+			<div class="panel-body">
+				<form  method="post"  id="taskForm" class="form-horizontal adminex-form">
+				{% csrf_token %}
+					<div class="form-group">
+						<label for="groups" class="col-sm-2 control-label">资产组</label>
+						<div class="col-sm-8">
+							<select name="groups" id="groups" data-placeholder="请选择资产组" class="chosen-select form-control m-b" multiple tabindex="2" >
+							    {% for group in groups %}
+								<option value='{{ group.id }}'>{{ group }}</option>
+								{% endfor %}
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="assets" class="col-sm-2 control-label">ip地址</label>
+							<div class="col-sm-8">
+							<select name="assets" id="assets" data-placeholder="请选择ip地址" class="chosen-select form-control m-b" multiple tabindex="2">
+								{% for asset in assets %}
+								<option value="{{ asset }}">{{ asset }}</option>
+								{% endfor %}
+							</select>
+							</div>
+							<input type="hidden" value={{info.department}} name='depart' />
+					</div>
+					<div class="form-group">
+						<label for="option_del" class="control-label col-lg-2 col-sm-3">删除规则</label>
+						<div class="col-lg-10 col-sm-9">
+							<input  type="checkbox" style="width: 20px" class="checkbox form-control tooltips" id="option_del" name="option_del" data-trigger="hover" data-toggle="tooltip" data-original-title="默认不选为添加规则"/>
+						</div>
+
+
+					</div>
+					<div class="form-group has-success">
+						<label class="col-lg-2 control-label">allow</label>
+						<div class="col-lg-8">
+							<input type="text" name="allow" placeholder="" id="allow" class="form-control tooltips" data-trigger="hover" data-toggle="tooltip" data-original-title="填写ip即可，多个ip用逗号隔开">
+						</div>
+					</div>
+					<div class="form-group has-warning">
+						<label class="col-lg-2 control-label">deny</label>
+						<div class="col-lg-8">
+							<input type="text" name="deny" placeholder="" id="deny" class="form-control tooltips" data-trigger="hover" data-toggle="tooltip" data-original-title="填写ip即可，多个ip用逗号隔开">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-lg-offset-2 col-lg-10">
+							<button class="btn btn-primary" type="submit">更新配置文件</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="panel">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					执行结果
+				</h4>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12">
+						<dl>
+						    {% if error %}
+							<dt>{{error}}</dt>
+							
+							{% elif result %}
+							<dt>执行成功</dt>
+							{% for item in result_ok %}
+							<dd>{{item}}</dd>
+							{% endfor %}
+
+							<hr style="height:1px;border:none;border-top:1px dashed #0066CC;" />
+							<dt>执行失败</dt>
+							{% for item in result_failed %}
+							<dd>{{item}}<dd>
+							{% endfor %}
+
+							<hr style="height:1px;border:none;border-top:1px dashed #0066CC;" />
+							<dt>连接失败</dt>
+							{% for item in result_dark %}
+							<dd>{{item}}</dd>
+							{% endfor %}
+
+							{% endif %}
+						</dl>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+
+
+
+	</div>
+</div>
+{% endblock %}
+{% block self_footer_js %}
+<script>
+$('#taskForm').validator({
+    timely: 2,
+    theme: "yellow_right_effect",
+    rules: {
+        check_asset: function(){
+            return $('#assets').val() == null
+        },
+        check_group: function(){
+            return $('#groups').val() == null
+        }
+    },
+    fields: {
+        "assets": {
+            rule: "required(check_group)",
+            tip: "选择资产",
+            msg: {required: "资产和资产组至少选一个"}
+        },
+
+    },
+    valid: function(form) {
+            form.submit();
+        }
+});
+
+
+var config = {
+                '.chosen-select'           : {},
+                '.chosen-select-deselect'  : {allow_single_deselect:true},
+                '.chosen-select-no-single' : {disable_search_threshold:10},
+                '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+                '.chosen-select-width'     : {width:"95%"}
+};
+
+for (var selector in config) {
+        $(selector).chosen(config[selector]);
+}
+
+</script>
+<script src="/static/js/cropper/cropper.min.js"></script>
+<script src="/static/js/datapicker/bootstrap-datepicker.js"></script>
+
+
+{% endblock %}

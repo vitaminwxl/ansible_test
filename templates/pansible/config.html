@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% block self_head_css_js %}
+<link href="/static/js/advanced-datatable/css/demo_page.css" rel="stylesheet" />
+<link href="/static/js/advanced-datatable/css/demo_table.css" rel="stylesheet" />
+<link rel="stylesheet" href="/static/js/data-tables/DT_bootstrap.css" />
+{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+    <h3>
+	    相关配置
+    </h3>
+	<ul class="breadcrumb">
+		<li>
+			<a href="#">首页</a>
+	    </li>
+		<li>
+			<a href="#">Ansible管理</a>
+		</li>
+		<li class="active">相关配置</li>
+	</ul>
+</div>
+
+
+<div class="row">
+	<div class="col-md-10">
+	<section class="panel">
+	<header class="panel-heading custom-tab dark-tab">
+		<ul class="nav nav-tabs">
+			{% for info in infos %}
+			<li class="{% if forloop.counter == 1 %}active{% endif %}">
+				<a href="#{{info.department}}" data-toggle="tab">{{info.department}}</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</header>
+	<div class="panel-body">
+	<div class="tab-content">
+	{% for info in infos %}
+	<div class="tab-pane {% if forloop.counter == 1 %}active{% endif %}" id="{{info.department}}">
+	<!--home start-->	
+		<div class="panel">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" >
+						资产相关
+					</a>
+				</h4>
+			</div>
+				<div class="panel-body">
+
+					<div class="wrapper">
+						<div class="row states-info">
+						
+							<div class="col-md-3">
+								<div class="panel red-bg">
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-xs-4">
+												<i class="fa fa-location-arrow"></i>
+											</div>
+											<div class="col-xs-8">
+												<span class="state-title"> Dev </span>
+												<h4> {{info.account_dev}} </h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="panel blue-bg">
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-xs-4">
+												<i class="fa fa-location-arrow"></i>
+											</div>
+											<div class="col-xs-8">
+												<span class="state-title">  Pre  </span>
+												<h4> {{info.account_pre}} </h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="panel green-bg">
+									<div class="panel-body">
+										<div class="row">
+											<div class="col-xs-4">
+												<i class="fa fa-location-arrow"></i>
+											</div>
+											<div class="col-xs-8">
+												<span class="state-title">  Pro  </span>
+												<h4> {{info.account_pro}} </h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+
+		<div class="panel">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion">
+					常用资产组
+				</a>
+				</h4>
+			</div>
+				<div class="panel-body">
+				<div class="adv-table">
+					<table  class="display table table-bordered table-striped" id="dynamic-table111">
+						<thead>
+							<tr>
+								<th>name</th>
+								<th>主机数量</th>
+								<th>描述</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+						{% for group in info.groups %}
+							<tr>
+								<td>{{group.name}}</td>
+								<td>{{group.asset_set.count}}</td>
+								<td>{{group.comment}}</td>
+								<td class="text-center">
+									<a href="{% url 'change_self_group' %}?id={{group.id}}" {% if group.gtype == '1' %} disabled='true' {% endif %} class="btn btn-success">编辑</a>
+									<a href="{% url 'delete_group' %}?id={{group.id}}" {% if group.gtype == '1' %} disabled="true" {% endif %} class="btn btn-danger">删除</a>
+
+								</td>
+							</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+				</div>
+				</div>
+		</div>
+	</div>
+
+
+	{% endfor %}
+
+
+	</div></div>
+	</section>
+	
+	</div>
+</div>
+{% endblock %}
+{% block self_footer_js %}
+
+
+
+<!--dynamic table-->
+<script type="text/javascript" language="javascript" src="/static/js/advanced-datatable/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="/static/js/data-tables/DT_bootstrap.js"></script>
+<!--dynamic table initialization -->
+<script src="/static/js/dynamic_table_init.js"></script>
+
+{% endblock %}

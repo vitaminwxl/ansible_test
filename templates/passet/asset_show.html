@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% block self_head_css_js %}
+<link href="/static/js/advanced-datatable/css/demo_page.css" rel="stylesheet" />
+<link href="/static/js/advanced-datatable/css/demo_table.css" rel="stylesheet" />
+<link rel="stylesheet" href="/static/js/data-tables/DT_bootstrap.css" />
+{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+    <h3>
+	    相关配置
+    </h3>
+	<ul class="breadcrumb">
+		<li>
+			<a href="#">首页</a>
+	    </li>
+		<li>
+			<a href="#">Ansible管理</a>
+		</li>
+		<li class="active">相关配置</li>
+	</ul>
+</div>
+
+
+<div class="row">
+	<div class="col-md-10">
+	<div class="panel-group" id="accordion">
+		
+		<div class="panel">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+						资产相关
+					</a>
+				</h4>
+			</div>
+			<div id="collapseOne" class="panel-collapse collapse in">
+				<div class="panel-body">
+        			<div class="adv-table">
+						<a href="{% url 'insert_group' %}" class="btn btn-success">定义资产组</a>
+		        		<table  class="display table table-bordered table-striped" id="dynamic-table111">
+				        	<thead>
+						        <tr>
+									<th>name</th>
+									<th>部门</th>
+									<th>环境</th>
+									<th>管理员</th>
+									<th>主机数量</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for group in groups %}
+								<tr>
+									<td>{{group.name}}</td>
+									<td>{{group.department}}</td>
+									<td>{{group.env}}</td>
+									<td>
+										{% for manager in group.manager.all %}
+										{{manager.username}}
+										</br>
+										{% endfor %}
+									</td>
+									<td>{{group.asset_set.count}}</td>
+									<td class="text-center">
+										<a href="{% url 'change_group_info' %}?id={{group.id}}" class="btn btn-success">编辑</a>
+										<a href="{% url 'group_delete' %}?id={{group.id}}" class="btn btn-danger">删除</a>
+									</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+					管理账号
+				</a>
+				</h4>
+			</div>
+			<div id="collapseTwo" class="panel-collapse collapse">
+				<div class="panel-body">
+					
+					<form role="form" method='post'>
+					    {% csrf_token %}
+						<div class="form-group">
+							<label for="username">管理账号</label>
+							<input type="text" class="form-control" name="username" placeholder="Enter username">
+						</div>
+						<div class="form-group">
+							<label for="password">密码</label>
+							<input type="password" class="form-control" name="password" placeholder="Password">
+						</div>
+						
+						<button type="submit" class="btn btn-primary">使用新账号</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	
+		<div class="panel">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+						一键同步
+					</a>
+				</h4>
+			</div>
+			<div id="collapseThree" class="panel-collapse collapse">
+				<div class="panel-body">
+				<a href="{% url 'reset_group' %}" class="btn btn-success">更新资产</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	</div>
+</div>
+{% endblock %}
+{% block self_footer_js %}
+
+<script src="/static/js/jquery-1.12.1.min.js"></script>
+
+<!--dynamic table-->
+<script type="text/javascript" language="javascript" src="/static/js/advanced-datatable/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="/static/js/data-tables/DT_bootstrap.js"></script>
+<!--dynamic table initialization -->
+<script src="/static/js/dynamic_table_init.js"></script>
+{% endblock %}
